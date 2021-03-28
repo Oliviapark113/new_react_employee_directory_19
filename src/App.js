@@ -1,22 +1,28 @@
 import { useState, useEffect } from 'react'
-import Wrapper from './components/Wrapper';
+// import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import Employee from './components/Employee';
 import Search from './components/Search';
 import axios from 'axios'
-import './App.css';
+// import './App.css';
 
 function App() {
 
-  const [ searchByDOB , setSearchByDOB] = useState([])
+  const [ searchByDOB , setSearchByDOB] = useState("")
+
+  const [ searchByEmployee, setSearchByEmployee] = useState([])
+
+  useEffect(()=>{
+    searchAPIByEmployee()
+  }, [])
 
 
   
  const searchAPIByEmployee = () => {
   axios.get('https://randomuser.me/api/?results=20')
   .then(response => {
-  console.log(response)
-    // this.setState({results: response.data.results})
+    console.log(response.data.results)
+    setSearchByEmployee(response.data.results)
    })
   .catch(err => console.error(err))
  }
@@ -39,18 +45,20 @@ const searchAPIbyGender = (e)=>{
   axios.get(`https://randomuser.me/api/?gender=${gender}`)
   .then(response =>{
     console.log(response.data.results)
-    this.setState({results:response.data.results })
+     setSearchByEmployee(response.data.results)
   })
 
 
 }
 
-const handleInputChange = (e)=>{ 
+const handleInputChange = (e)=>{
+
   const name = e.target.name;
   const value = e.target.value;
 
   console.log(name, value)
- this.setState({[name]: value})
+//  this.setState({[name]: value})
+  setSearchByDOB({[name]: value})
 
 }
 
@@ -58,10 +66,7 @@ const handleInputChange = (e)=>{
 const handleSubmit = e =>{
   e.preventDefault()
   console.log("Submitting....", this.state.searchByGender, this.state.searchByDOB)
-  if(this.state.searchByGender==="" && this.state.searchByDOB===""){
-      alert("Please enter correct search term")
 
-  }
   localStorage.setItem("search", `${this.state.searchByDOB}`)
 }
 
@@ -71,26 +76,20 @@ const handleSubmit = e =>{
 // })
 
 
-
-
   return (
-   
-
-
+  
 
     <div className="App">
-      <header className="App-header">
-        <Wrapper />
+     
         <Title />
         <Search 
         searchByDOB={searchByDOB}
+        setSearchByDOB={setSearchByDOB}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
         searchAPIbyGender={searchAPIbyGender}/>
-        <Employee />
+        <Employee searchByEmployee={searchByEmployee} />
       
-       
-      </header>
     </div>
   );
 }
