@@ -1,11 +1,11 @@
 .th {
-    background: #fff;
+    background: #ECEFF1;
     border-radius: 2px;
     padding: 1rem;
     margin: auto; 
 
     width: 100%;
-    /* box-shadow: 0 3px 6px #999, 0 3px 6px #999; */
+ 
  
     text-align: left;
     font-size: 22px;
@@ -14,13 +14,21 @@
   }
   
   .header-row{
+    /* background-color: grey; */
     border-top: 1px solid black;
     border-right: 1px solid black;
     border-left: 1px solid black;
+   
+  }
+
+  .header-row > .th{
+    background-color:#e0e0e0;
+
+   
   }
 
   .table {
-    background: #fff;
+    /* background: #fff; */
     border-radius: 2px;
     padding: 1rem;
     margin: auto; 
@@ -28,32 +36,41 @@
     width: 100%;
     /* box-shadow: 0 3px 6px #999, 0 3px 6px #999; */
     text-align: center;
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 20px;
+    /* font-weight: bold; */
     font-family: 'Montserrat', sans-serif;
-    /* border: 1px solid black; */
+   
     
   }
 
   .contents-row{
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+    border: 1px solid black;
+    background-color:#fafafa;
   }
   
+ .name,
+ .phone,
+ .email, 
+ .dob{
+    text-align: left;
+    margin-left:0px;
+  }
+
+ 
+
    .img-container {
     height: 100px;
     width: 100px;
     overflow: hidden;
     text-align: center;
-    /* background:#6CADDC; */
+ 
   }
 
   .box{
     margin: 10px;
   }
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 720px) {
     .container {
       display: flex;
       flex-direction: row;
@@ -78,6 +95,14 @@
       border: 1px solid black;
       width: 100%
     }
+
+  .name,
+ .phone,
+ .email, 
+ .dob{
+    text-align: center;
+  
+  }
 
   
 

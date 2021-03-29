@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-// import Wrapper from './components/Wrapper';
+import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import Employee from './components/Employee';
 import Search from './components/Search';
@@ -62,16 +62,20 @@ const handleInputChange = (e)=>{
 
 }
 
-const filteredResults =  searchByEmployee.filter(user=>{   
-  return user.dob.date.includes(searchByDOB)
-       
-})
+const filteredResults =  searchByEmployee.filter(user=>{ 
+  return user.dob.date.includes(searchByDOB ) 
+        
+ })
+ 
+
 
 
 
 
 const handleSubmit = e =>{
   e.preventDefault()
+
+
   console.log(filteredResults)
   setSearchByEmployee(filteredResults)
   
@@ -80,24 +84,26 @@ const handleSubmit = e =>{
 
 
 
-
   return (
+    
+
+    
+ 
   
 
     <div className="App">
-     
+       <Wrapper>
         <Title />
         <Search 
         searchByDOB={searchByDOB}
         setSearchByDOB={setSearchByDOB}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
-       
         searchAPIbyGender={searchAPIbyGender}/>
         <Employee 
         searchByEmployee={searchByEmployee} 
-       
         formatName={formatName}/>
+        </Wrapper>
       
     </div>
   );
