@@ -2,7 +2,7 @@ import React from 'react'
 import "./style.css";
 
 
-const Employee = ({searchByEmployee, formatName,filteredResults}) => {
+const Employee = ({searchByEmployee, formatName,}) => {
  
 
     return(
