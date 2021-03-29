@@ -2,8 +2,8 @@ import React from 'react'
 import "./style.css";
 
 
-const Employee = ({searchByEmployee, formatName}) => {
-  console.log(searchByEmployee)
+const Employee = ({searchByEmployee, formatName,filteredResults}) => {
+ 
 
     return(
       searchByEmployee.map( result =>

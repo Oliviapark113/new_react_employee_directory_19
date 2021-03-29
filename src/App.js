@@ -30,7 +30,7 @@ function App() {
   const formatName = (string) => {
   var shortStr = string.slice(0,10) + ".."
   if (string.length > 20){
-    console.log(shortStr)
+  
     return shortStr 
   }
   else {
@@ -88,7 +88,9 @@ const filteredResults =  searchByEmployee.filter(user=>{
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
         searchAPIbyGender={searchAPIbyGender}/>
-        <Employee searchByEmployee={searchByEmployee} 
+        <Employee 
+        searchByEmployee={searchByEmployee} 
+        filteredResults = {filteredResults}
         formatName={formatName}/>
       
     </div>

@@ -12,7 +12,7 @@ border-radius : 10px;
 
 `
 
-const Search = ({searchAPIbyGender, searchByDOB,   handleInputChange, handleSubmit}) => {
+const Search = ({searchAPIbyGender, searchByDOB,   handleInputChange, handleSubmit, filteredResults}) => {
     return(
         <div className="container input-container text-center">
            <div className="row search">
@@ -46,7 +46,7 @@ const Search = ({searchAPIbyGender, searchByDOB,   handleInputChange, handleSubm
                     <button
                        type="button"
                        className="query_btn btn btn-default btn-sm search-btn"
-                       onClick={searchByDOB}>Search by DOB</button>
+                       onClick={filteredResults}>Search by DOB</button>
                 </div>
   
               
