@@ -70,10 +70,10 @@ const handleSubmit = e =>{
   localStorage.setItem("search", `${this.state.searchByDOB}`)
 }
 
-// const filteredResults = this.state.results.filter(user=>{
-//   return user.dob.date.includes(this.state.searchByDOB)
+const filteredResults =  searchByEmployee.filter(user=>{
+  return user.dob.date.includes(searchByDOB)
 
-// })
+})
 
 
   return (
@@ -88,7 +88,8 @@ const handleSubmit = e =>{
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
         searchAPIbyGender={searchAPIbyGender}/>
-        <Employee searchByEmployee={searchByEmployee} />
+        <Employee searchByEmployee={searchByEmployee} 
+        formatName={formatName}/>
       
     </div>
   );
