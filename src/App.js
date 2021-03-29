@@ -62,18 +62,23 @@ const handleInputChange = (e)=>{
 
 }
 
+const filteredResults =  searchByEmployee.filter(user=>{   
+  return user.dob.date.includes(searchByDOB)
+       
+})
+
+
+
 
 const handleSubmit = e =>{
   e.preventDefault()
-  console.log("Submitting....", this.state.searchByGender, this.state.searchByDOB)
-
-  localStorage.setItem("search", `${this.state.searchByDOB}`)
+  console.log(filteredResults)
+  setSearchByEmployee(filteredResults)
+  
 }
 
-const filteredResults =  searchByEmployee.filter(user=>{
-  return user.dob.date.includes(searchByDOB)
 
-})
+
 
 
   return (
@@ -87,10 +92,11 @@ const filteredResults =  searchByEmployee.filter(user=>{
         setSearchByDOB={setSearchByDOB}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
+       
         searchAPIbyGender={searchAPIbyGender}/>
         <Employee 
         searchByEmployee={searchByEmployee} 
-        filteredResults = {filteredResults}
+       
         formatName={formatName}/>
       
     </div>
