@@ -28,7 +28,7 @@ An employee or manager would benefit greatly from being able to view non-sensiti
 
 ### `npm start`
 
-### Deployed Sites : https://oliviapark113.github.io/react_employee_directory_19/
+### Deployed Sites : https://oliviapark113.github.io/new_react_employee_directory_19/
 
 ## Demo
 ![Demo](demo/demo-1.gif)
