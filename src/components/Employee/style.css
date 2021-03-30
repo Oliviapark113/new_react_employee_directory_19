@@ -23,6 +23,7 @@
 
   .header-row > .th{
     background-color:#e0e0e0;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 
    
   }
@@ -46,6 +47,7 @@
   .contents-row{
     border: 1px solid black;
     background-color:#fafafa;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   }
   
  .name,
@@ -93,7 +95,8 @@
 
     .contents-row{
       border: 1px solid black;
-      width: 100%
+      width: 100%;
+      
     }
 
   .name,
