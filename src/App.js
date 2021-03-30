@@ -57,25 +57,22 @@ const handleInputChange = (e)=>{
   const value = e.target.value;
 
   console.log(name, value)
-//  this.setState({[name]: value})
-  setSearchByDOB({[name]: value})
+// this.setState({[name]: value})
+  // setSearchByDOB({[name]: value})
+  setSearchByDOB(value)
 
 }
 
 const filteredResults =  searchByEmployee.filter(user=>{ 
+  console.log(searchByDOB)
+  console.log(user.dob.date)
   return user.dob.date.includes(searchByDOB ) 
         
  })
  
 
-
-
-
-
 const handleSubmit = e =>{
   e.preventDefault()
-
-
   console.log(filteredResults)
   setSearchByEmployee(filteredResults)
   
@@ -86,10 +83,6 @@ const handleSubmit = e =>{
 
   return (
     
-
-    
- 
-  
 
     <div className="App">
        <Wrapper>
