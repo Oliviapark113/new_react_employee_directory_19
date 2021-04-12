@@ -12,6 +12,8 @@ function App() {
 
   const [ searchByEmployee, setSearchByEmployee] = useState([])
 
+  const [gender, setGender]=useState("")
+
   useEffect(()=>{
     searchAPIByEmployee()
   }, [])
@@ -42,11 +44,18 @@ function App() {
 
 const searchAPIbyGender = (e)=>{
   const gender = e.target.value
-  axios.get(`https://randomuser.me/api/?gender=${gender}`)
-  .then(response =>{
-    console.log(response.data.results)
-     setSearchByEmployee(response.data.results)
-  })
+  console.log(gender)
+  setGender(gender)
+
+
+
+
+
+  // axios.get(`https://randomuser.me/api/?gender=${gender}`)
+  // .then(response =>{
+  //   console.log(response.data.results)
+  //    setSearchByEmployee(response.data.results)
+  // })
 
 
 }
@@ -64,10 +73,18 @@ const handleInputChange = (e)=>{
 }
 
 const filteredResults =  searchByEmployee.filter(user=>{ 
-  console.log(searchByDOB)
-  console.log(user.dob.date)
+  // console.log(searchByDOB)
+  // console.log(user.dob.date)
   return user.dob.date.includes(searchByDOB ) 
         
+ }).filter(user =>{
+  console.log(gender)
+   if(gender===""){
+     return user
+   }
+  
+   return user.gender=== gender
+ 
  })
  
 
@@ -92,9 +109,10 @@ const handleSubmit = e =>{
         setSearchByDOB={setSearchByDOB}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
-        searchAPIbyGender={searchAPIbyGender}/>
+        searchAPIbyGender={searchAPIbyGender}
+        />
         <Employee 
-        searchByEmployee={searchByEmployee} 
+        searchByEmployee={ filteredResults} 
         formatName={formatName}/>
         </Wrapper>
       
